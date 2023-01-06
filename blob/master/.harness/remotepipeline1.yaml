@@ -1,0 +1,14 @@
+inputSet:
+  identifier: "test22"
+  name: "test22"
+  orgIdentifier: "default"
+  projectIdentifier: "CIBootcampAbhi"
+  pipeline:
+    identifier: "remotepipeline"
+    properties:
+      ci:
+        codebase:
+          build:
+            type: "branch"
+            spec:
+              branch: "<+trigger.branch>"
