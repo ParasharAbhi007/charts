@@ -1,0 +1,38 @@
+pipeline:
+  name: remotepipeline
+  identifier: remotepipeline
+  projectIdentifier: CIBootcampAbhi
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: abhigithub
+        repoName: charts
+        build: <+input>
+  stages:
+    - stage:
+        name: build
+        identifier: build
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: shell
+                  identifier: shell
+                  spec:
+                    connectorRef: DockerTest
+                    image: test
+                    shell: Sh
+                    command: echo hello
+          infrastructure:
+            type: KubernetesDirect
+            spec:
+              connectorRef: abhiCI
+              namespace: abhinandan
+              nodeSelector: {}
+              os: Linux
