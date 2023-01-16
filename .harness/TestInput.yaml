@@ -1,0 +1,29 @@
+inputSet:
+  identifier: "TestInput"
+  name: "TestInput"
+  orgIdentifier: "AbhiOrg"
+  projectIdentifier: "CSETest1"
+  pipeline:
+    identifier: "test3k8s_deploy"
+    template:
+      templateInputs:
+        stages:
+        - stage:
+            identifier: "deploy"
+            type: "Deployment"
+            spec:
+              service:
+                serviceRef: "k8service"
+              environment:
+                environmentRef: "K8Env"
+                infrastructureDefinitions: []
+        - stage:
+            identifier: "k8s_apply"
+            type: "Deployment"
+            spec:
+              service:
+                serviceRef: "k8service"
+              environment:
+                environmentRef: "K8Env"
+                infrastructureDefinitions:
+                - identifier: "K8INFRA"
