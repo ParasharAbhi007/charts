@@ -1,0 +1,38 @@
+pipeline:
+  name: test3k8s deploy
+  identifier: test3k8s_deploy
+  template:
+    templateRef: Pipeline_template
+    versionLabel: "1"
+    templateInputs:
+      stages:
+        - stage:
+            identifier: deploy
+            type: Deployment
+            spec:
+              service:
+                serviceRef: <+input>
+                serviceInputs: <+input>
+              environment:
+                environmentRef: <+input>
+                environmentInputs: <+input>
+                serviceOverrideInputs: <+input>
+                infrastructureDefinitions: <+input>
+        - stage:
+            identifier: k8s_apply
+            type: Deployment
+            spec:
+              service:
+                serviceRef: <+input>
+                serviceInputs: <+input>
+              environment:
+                environmentRef: <+input>
+                environmentInputs: <+input>
+                infrastructureDefinitions: <+input>
+      properties:
+        ci:
+          codebase:
+            build: <+input>
+  tags: {}
+  projectIdentifier: CSETest1
+  orgIdentifier: AbhiOrg
