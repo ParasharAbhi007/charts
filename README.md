@@ -63,7 +63,7 @@ $ helm repo add bitnami https://charts.bitnami.com/bitnami
 >
 > You can find more information in the [Bitnami index FAQ](https://github.com/bitnami/charts/issues/10833) pinned issue.
 
-### Using Helm
+#### Using Helm
 
 Once you have installed the Helm client, you can deploy a Bitnami Helm Chart into a Kubernetes cluster.
 
