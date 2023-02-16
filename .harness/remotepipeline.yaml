@@ -36,3 +36,14 @@ pipeline:
               namespace: abhinandan
               nodeSelector: {}
               os: Linux
+    - stage:
+        name: chain
+        identifier: chain
+        description: ""
+        type: Pipeline
+        spec:
+          org: default
+          pipeline: paymentservice
+          project: CIBootcampAbhi
+          inputSetReferences: []
+          outputs: []
