@@ -16,6 +16,11 @@ featureFlags:
         - identifier: "false"
           value: "false"
       environments:
+      - identifier: test2
+        default:
+          onVariation: "true"
+          offVariation: "false"
+        state: "off"
       - identifier: test_env
         default:
           onVariation: "true"
@@ -37,6 +42,11 @@ featureFlags:
         - identifier: "false"
           value: "false"
       environments:
+      - identifier: test2
+        default:
+          onVariation: "true"
+          offVariation: "false"
+        state: "off"
       - identifier: test_env
         default:
           onVariation: "true"
