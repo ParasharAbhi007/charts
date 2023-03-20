@@ -4,46 +4,27 @@ pipeline:
   projectIdentifier: CIBootcampAbhi
   orgIdentifier: default
   tags: {}
-  properties:
-    ci:
-      codebase:
-        connectorRef: abhigithub
-        repoName: charts
-        build: <+input>
   stages:
     - stage:
-        name: build
-        identifier: build
+        name: custom
+        identifier: custom
         description: ""
-        type: CI
+        type: Custom
         spec:
-          cloneCodebase: true
           execution:
             steps:
               - step:
-                  type: Run
-                  name: shell
-                  identifier: shell
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
                   spec:
-                    connectorRef: DockerTest
-                    image: test
-                    shell: Sh
-                    command: echo hello
-          infrastructure:
-            type: KubernetesDirect
-            spec:
-              connectorRef: abhiCI
-              namespace: abhinandan
-              nodeSelector: {}
-              os: Linux
-    - stage:
-        name: chain
-        identifier: chain
-        description: ""
-        type: Pipeline
-        spec:
-          org: default
-          pipeline: paymentservice
-          project: CIBootcampAbhi
-          inputSetReferences: []
-          outputs: []
+                    shell: Bash
+                    onDelegate: true
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo "hi"
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
