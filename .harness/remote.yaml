@@ -84,3 +84,15 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
+    - stage:
+        name: test
+        identifier: test
+        template:
+          templateRef: testtemp12
+          versionLabel: "1"
+          templateInputs:
+            type: Deployment
+            variables:
+              - name: testvar
+                type: String
+                value: <+input>.default(false).allowedValues(true,false)
