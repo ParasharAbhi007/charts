@@ -1,0 +1,17 @@
+inputSet:
+  name: test
+  identifier: test
+  orgIdentifier: AbhiOrg
+  projectIdentifier: CSETest1
+  pipeline:
+    identifier: remote
+    stages:
+      - stage:
+          identifier: test
+          template:
+            templateInputs:
+              type: Deployment
+              variables:
+                - name: testvar
+                  type: String
+                  value: "false"
