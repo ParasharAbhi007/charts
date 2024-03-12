@@ -1,17 +1,35 @@
-inputSet:
-  name: test
-  identifier: test
-  orgIdentifier: AbhiOrg
-  projectIdentifier: CSETest1
-  pipeline:
-    identifier: remote
-    stages:
-      - stage:
-          identifier: test
-          template:
-            templateInputs:
-              type: Deployment
-              variables:
-                - name: testvar
-                  type: String
-                  value: "false"
+featureFlags:
+  flags:
+  - flag:
+      name: androidtv_show_unsubscribed_channels_in_livetv_stripes
+      identifier: androidtv_show_unsubscribed_channels_in_livetv_stripes
+      description: ""
+      permanent: false
+      spec:
+        type: string
+        default:
+          onVariation: enabled
+          offVariation: disabled
+        variations:
+        - identifier: enabled
+          value: enabled
+        - identifier: disabled
+          value: disabled
+      environments:
+      - identifier: rerpo
+        default:
+          onVariation: enabled
+          offVariation: disabled
+        state: "off"
+      - identifier: Prod
+        default:
+          onVariation: enabled
+          offVariation: disabled
+        state: "off"
+      - identifier: Dev
+        default:
+          onVariation: enabled
+          offVariation: disabled
+        state: "off"
+  projectIdentifier: FF_Test
+  orgIdentifier: default
