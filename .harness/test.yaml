@@ -124,6 +124,15 @@ featureFlags:
           onVariation: Enabled
           offVariation: Disabled
         state: "off"
+        rules:
+        - priority: 0
+          serve:
+            serveVariation: Enabled
+          clauses:
+          - attribute: ""
+            op: segmentMatch
+            values:
+            - test_1
   - flag:
       name: offers_simplifiedSingleTicketCheck
       identifier: offers_simplifiedSingleTicketCheck
