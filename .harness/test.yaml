@@ -133,6 +133,10 @@ featureFlags:
             op: segmentMatch
             values:
             - test_1
+        targetRules:
+        - targets:
+          - identifier: velws
+          variation: Enabled
   - flag:
       name: offers_simplifiedSingleTicketCheck
       identifier: offers_simplifiedSingleTicketCheck
