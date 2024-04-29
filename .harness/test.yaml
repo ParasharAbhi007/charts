@@ -135,7 +135,7 @@ featureFlags:
             - test_1
         targetRules:
         - targets:
-          - identifier: velws
+          - identifier: best
           variation: Enabled
   - flag:
       name: offers_simplifiedSingleTicketCheck
