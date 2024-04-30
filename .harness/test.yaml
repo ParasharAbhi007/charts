@@ -200,5 +200,9 @@ featureFlags:
           onVariation: "false"
           offVariation: "false"
         state: "off"
+        targetRules:
+        - targets:
+          - identifier: velws
+          variation: "true"
   projectIdentifier: FF_Test
   orgIdentifier: default
