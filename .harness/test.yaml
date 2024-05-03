@@ -168,7 +168,7 @@ featureFlags:
         default:
           onVariation: Enabled
           offVariation: Disabled
-        state: "off"
+        state: "on"
   - flag:
       name: testfindl
       identifier: testfindl
