@@ -56,7 +56,7 @@ featureFlags:
         default:
           onVariation: test
           offVariation: test1
-        state: "off"
+        state: "on"
       - identifier: Dev
         default:
           onVariation: test
