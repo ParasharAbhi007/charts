@@ -45,7 +45,7 @@ featureFlags:
         - identifier: test
           value: test
         - identifier: test1
-          value: test1
+          value: "20"
       environments:
       - identifier: rerpo
         default:
