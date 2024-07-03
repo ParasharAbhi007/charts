@@ -125,51 +125,6 @@ featureFlags:
           offVariation: Disabled
         state: "off"
   - flag:
-      name: MY_FEATURE2
-      identifier: MY_FEATURE2
-      description: ""
-      permanent: false
-      spec:
-        type: boolean
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        variations:
-        - identifier: Enabled
-          value: "true"
-        - identifier: Disabled
-          value: "false"
-      environments:
-      - identifier: rerpo
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        state: "off"
-      - identifier: Prod
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        state: "off"
-      - identifier: Dev
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        state: "off"
-        rules:
-        - priority: 0
-          serve:
-            serveVariation: Enabled
-          clauses:
-          - attribute: ""
-            op: segmentMatch
-            values:
-            - test_1
-        targetRules:
-        - targets:
-          - identifier: velws
-          - identifier: best
-          variation: Enabled
-  - flag:
       name: offers_simplifiedSingleTicketCheck
       identifier: offers_simplifiedSingleTicketCheck
       description: ""
