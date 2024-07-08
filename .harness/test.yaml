@@ -32,6 +32,37 @@ featureFlags:
           offVariation: disabled
         state: "off"
   - flag:
+      name: multiv
+      identifier: multiv
+      description: ""
+      permanent: false
+      spec:
+        type: string
+        default:
+          onVariation: test
+          offVariation: test1
+        variations:
+        - identifier: test
+          value: test
+        - identifier: test1
+          value: "20"
+      environments:
+      - identifier: rerpo
+        default:
+          onVariation: test
+          offVariation: test1
+        state: "off"
+      - identifier: Prod
+        default:
+          onVariation: test
+          offVariation: test1
+        state: "on"
+      - identifier: Dev
+        default:
+          onVariation: test
+          offVariation: test1
+        state: "off"
+  - flag:
       name: MY_FEATURE
       identifier: MY_FEATURE
       description: ""
