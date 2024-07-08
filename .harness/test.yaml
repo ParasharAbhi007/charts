@@ -32,6 +32,37 @@ featureFlags:
           offVariation: disabled
         state: "off"
   - flag:
+      name: deletetest
+      identifier: deletetest
+      description: ""
+      permanent: false
+      spec:
+        type: boolean
+        default:
+          onVariation: "false"
+          offVariation: "false"
+        variations:
+        - identifier: "true"
+          value: "true"
+        - identifier: "false"
+          value: "false"
+      environments:
+      - identifier: rerpo
+        default:
+          onVariation: "false"
+          offVariation: "false"
+        state: "on"
+      - identifier: Prod
+        default:
+          onVariation: "false"
+          offVariation: "false"
+        state: "off"
+      - identifier: Dev
+        default:
+          onVariation: "false"
+          offVariation: "false"
+        state: "off"
+  - flag:
       name: multiv
       identifier: multiv
       description: ""
