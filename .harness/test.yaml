@@ -36,6 +36,11 @@ featureFlags:
           onVariation: enabled
           offVariation: disabled
         state: "off"
+      - identifier: sdkkey
+        default:
+          onVariation: enabled
+          offVariation: disabled
+        state: "off"
   - flag:
       name: MY_FEATURE
       identifier: MY_FEATURE
@@ -68,6 +73,11 @@ featureFlags:
           offVariation: Disabled
         state: "off"
       - identifier: dgdsgsdgsdfg
+        default:
+          onVariation: Enabled
+          offVariation: Disabled
+        state: "off"
+      - identifier: sdkkey
         default:
           onVariation: Enabled
           offVariation: Disabled
@@ -108,6 +118,11 @@ featureFlags:
           onVariation: Enabled
           offVariation: Disabled
         state: "off"
+      - identifier: sdkkey
+        default:
+          onVariation: Enabled
+          offVariation: Disabled
+        state: "off"
   - flag:
       name: offers_simplifiedSingleTicketCheck
       identifier: offers_simplifiedSingleTicketCheck
@@ -140,6 +155,11 @@ featureFlags:
           offVariation: Disabled
         state: "on"
       - identifier: dgdsgsdgsdfg
+        default:
+          onVariation: Enabled
+          offVariation: Disabled
+        state: "off"
+      - identifier: sdkkey
         default:
           onVariation: Enabled
           offVariation: Disabled
@@ -180,6 +200,11 @@ featureFlags:
           - identifier: velws
           variation: "true"
       - identifier: dgdsgsdgsdfg
+        default:
+          onVariation: "false"
+          offVariation: "false"
+        state: "off"
+      - identifier: sdkkey
         default:
           onVariation: "false"
           offVariation: "false"
