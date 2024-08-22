@@ -1,0 +1,22 @@
+service:
+  name: mybasicdeployservice
+  identifier: mybasicdeployservice
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: manifest1
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: <+input>
+                  gitFetchType: Branch
+                  paths:
+                    - files1
+                  repoName: <+input>
+                  branch: master
+              skipResourceVersioning: false
+    type: Kubernetes
+  gitOpsEnabled: false
