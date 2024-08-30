@@ -1,7 +1,7 @@
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/bitnami)](https://artifacthub.io/packages/search?repo=bitnami)
 [![CD Pipeline](https://github.com/bitnami/charts/actions/workflows/cd-pipeline.yaml/badge.svg)](https://github.com/bitnami/charts/actions/workflows/cd-pipeline.yaml)
 
-# The Bitnami Library for Kubernetes
+# The Bitnami Library for Kubernete
 
 Popular applications, provided by [Bitnami](https://bitnami.com), ready to launch on Kubernetes using [Kubernetes Helm](https://github.com/helm/helm).
 
