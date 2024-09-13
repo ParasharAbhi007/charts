@@ -179,6 +179,13 @@ featureFlags:
           value: "true"
         - identifier: "false"
           value: "false"
+      tags:
+      - tag:
+          name: dr
+          identifier: dr
+      - tag:
+          name: gg
+          identifier: gg
       environments:
       - identifier: rerpo
         default:
