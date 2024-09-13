@@ -215,6 +215,6 @@ featureFlags:
         default:
           onVariation: "false"
           offVariation: "false"
-        state: "off"
+        state: "on"
   projectIdentifier: FF_Test
   orgIdentifier: default
