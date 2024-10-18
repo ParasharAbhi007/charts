@@ -42,6 +42,51 @@ featureFlags:
           offVariation: disabled
         state: "off"
   - flag:
+      name: k
+      identifier: k
+      description: ""
+      permanent: false
+      spec:
+        type: boolean
+        default:
+          onVariation: "false"
+          offVariation: "false"
+        variations:
+        - identifier: "true"
+          value: "true"
+        - identifier: "false"
+          value: "false"
+      tags:
+      - tag:
+          name: gg
+          identifier: gg
+      environments:
+      - identifier: rerpo
+        default:
+          onVariation: "false"
+          offVariation: "false"
+        state: "off"
+      - identifier: Prod
+        default:
+          onVariation: "false"
+          offVariation: "false"
+        state: "off"
+      - identifier: Dev
+        default:
+          onVariation: "false"
+          offVariation: "false"
+        state: "off"
+      - identifier: dgdsgsdgsdfg
+        default:
+          onVariation: "false"
+          offVariation: "false"
+        state: "off"
+      - identifier: sdkkey
+        default:
+          onVariation: "false"
+          offVariation: "false"
+        state: "off"
+  - flag:
       name: MY_FEATURE
       identifier: MY_FEATURE
       description: ""
