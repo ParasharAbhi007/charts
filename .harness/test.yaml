@@ -85,7 +85,7 @@ featureFlags:
         default:
           onVariation: "false"
           offVariation: "false"
-        state: "off"
+        state: "on"
   - flag:
       name: MY_FEATURE
       identifier: MY_FEATURE
