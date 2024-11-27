@@ -1,265 +1,1216 @@
-featureFlags:
-  flags:
-  - flag:
-      name: androidtv_show_unsubscribed_channels_in_livetv_stripes
-      identifier: androidtv_show_unsubscribed_channels_in_livetv_stripes
+overrides:
+  variables:
+    - name: GKTokenURI
+      type: String
+      value: https://<+serviceVariables.globalAuthURL>/oauth2/token
+      required: false
+    - name: HighMemoryLimit
+      type: String
+      value: "8192"
+      required: false
+    - name: LowMemoryLimit
+      type: String
+      value: "1024"
+      required: false
+    - name: MMAddress
+      type: String
+      value: static://mediamanager.api.nuance.net.au:443
+      required: false
+    - name: MMClientID
+      type: String
+      value: v2_1eaebaf6-bd6e-4c5f-935b-24524c3ea6db
+      required: false
+    - name: MMClientMethod
+      type: String
+      value: client_secret_post
+      required: false
+    - name: MMClientSecret
+      type: Secret
+      value: gk2Prod6aMmSecret
+      required: false
+    - name: MMClientSecretGA2
+      type: Secret
+      value: gk2ProdMmSecretGa2
+      required: false
+    - name: MMClientSecretUnmaskedGA2
+      type: Secret
+      value: gk2ProdMmSecretGa2Unmasked
+      required: false
+    - name: MMScope
+      type: String
+      value: mm
+      required: false
+    - name: MMTokenURI
+      type: String
+      value: <+"https://" + <+serviceVariables.globalAuthURL> + "/oauth2/token">
+      required: false
+    - name: MaxServiceReplicas
+      type: String
+      value: "10"
+      required: false
+    - name: MediumMemoryLimit
+      type: String
+      value: "4096"
+      required: false
+    - name: MetricEndpoint
+      type: String
+      value: http://ambassador-internal.ingress-controllers.svc.cluster.local/plaintext/thanos/query
+      required: false
+    - name: MinServiceReplicas
+      type: String
+      value: "2"
+      required: false
+    - name: OPA_URL
+      type: String
+      value: http://localhost:8181
+      required: false
+    - name: PurgeCheckOwnerScope
+      type: String
+      value: "\"\""
+      required: false
+    - name: RLSService
+      type: String
+      value: rls-envoy-prod.fabric-prod.svc.cluster.local.:51051
+      required: false
+    - name: ServiceReplicas
+      type: String
+      value: "2"
+      required: false
+    - name: WacTenantsConfig
+      type: String
+      value: "[{'tenant': 'nuance', 'hintArg': 'login_hint'},{'tenant': 'gatekeeper', 'hintArg': 'login_hint'}]"
+      required: false
+    - name: aadAuthority
+      type: String
+      value: https://login.microsoftonline.com/organizations/oauth2/v2.0/token
+      required: false
+    - name: aadClientId
+      type: String
+      value: 4cd7a620-c061-4d8b-9b0f-a3d8e251d65c
+      required: false
+    - name: aadScope
+      type: String
+      value: https://graph.microsoft.com/.default
+      required: false
+    - name: aadSecret
+      type: Secret
+      value: gk2Aadsecretprod
+      required: false
+    - name: aadUserInfo
+      type: String
+      value: https://graph.microsoft.com/oidc/userinfo
+      required: false
+    - name: ambassadorCertSecret
+      type: String
+      value: gatekeeper2-prod-ambassador-cert-secret
+      required: false
+    - name: ambassadorId
+      type: String
+      value: gatekeeper2-prod
+      required: false
+    - name: ambassadorPrefix
+      type: String
+      value: webapp
+      required: false
+    - name: ambassadorSecretProvider
+      type: String
+      value: gatekeeper2-prod-ambassador-secret-provider-class
+      required: false
+    - name: ambassadorTimeoutMs
+      type: String
+      value: "20000"
+      required: false
+    - name: ambassador_api_domain
+      type: String
+      value: australiasoutheast6-gatekeeper.api.nuance.net.au
+      required: false
+    - name: ambassador_cert_api_secret_name
+      type: String
+      value: api-nuance-net-au-auto-renewed
+      required: false
+    - name: ambassador_cert_secret_name
+      type: String
+      value: gatekeeper-nuance-net-au-auto-renewed
+      required: false
+    - name: ambassador_domain
+      type: String
+      value: portal.gatekeeper.nuance.net.au
+      required: false
+    - name: ambassador_help_domain
+      type: String
+      value: australiasoutheast6-docs.gatekeeper.nuance.net.au
+      required: false
+    - name: ambassador_internal_cert_secret_name
+      type: String
+      value: prod6a-private-crt-nuance-net-au
+      required: false
+    - name: ambassador_portal_domain
+      type: String
+      value: australiasoutheast6-portal.gatekeeper.nuance.net.au
+      required: false
+    - name: ambassador_status_page_domain
+      type: String
+      value: australiasoutheast6-global-status.gatekeeper.nuance.net.au
+      required: false
+    - name: ambassador_wac_domain
+      type: String
+      value: australiasoutheast6-agent.gatekeeper.nuance.net.au
+      required: false
+    - name: apiDomain
+      type: String
+      value: australiasoutheast6-gatekeeper.api.nuance.net.au
+      required: false
+    - name: apiDomainOther
+      type: String
+      value: gatekeeper.api.nuance.net.au
+      required: false
+    - name: apiScope
+      type: String
+      value: GatekeeperService
+      required: false
+    - name: api_host_regex
+      type: String
+      value: .*gatekeeper.api.nuance.net.au(:443)?
+      required: false
+    - name: artifactoryURL
+      type: String
+      value: xgatekeeper2.azurecr.io
+      required: false
+    - name: asrAddress
+      type: String
+      value: asr.api.nuance.net.au:443
+      required: false
+    - name: asrClientID
+      type: String
+      value: appID:GatekeeperNuance-GateKeeper2IntegrationApp-Prod-20230226_origin_au:geo:au:clientName:prod6a
+      required: false
+    - name: asrClientMethod
+      type: String
+      value: client_secret_basic
+      required: false
+    - name: asrClientSecret
+      type: Secret
+      value: gk2Prod6aAsrClientSecret
+      required: false
+    - name: asrScope
+      type: String
+      value: asr
+      required: false
+    - name: asrTokenURI
+      type: String
+      value: https://auth.crt.nuance.net.au/oauth2/token
+      required: false
+    - name: authCookieDomain
+      type: String
+      value: .gatekeeper.nuance.net.au
+      required: false
+    - name: authCookieName
+      type: String
+      value: au_prod_auth_token
+      required: false
+    - name: authIssuer
+      type: String
+      value: <+"https://" + <+serviceVariables.globalAuthURL> + "/">
+      required: false
+    - name: authRedirectURI
+      type: String
+      value: https://portal.gatekeeper.nuance.net.au/webapp/login
+      required: false
+    - name: authRefreshURI
+      type: String
+      value: https://portal.gatekeeper.nuance.net.au/webapp/silent-refresh.html
+      required: false
+    - name: auth_audience
+      type: String
+      value: aud-api
+      required: false
+    - name: auth_scope
+      type: String
+      value: GatekeeperService mm.event.create
+      required: false
+    - name: azureAppConfigEndpoint
+      type: String
+      value: tbd
+      required: false
+    - name: azureKafkaBillingHost
+      type: String
+      value: prod6bgatekeeper2-billing-std.servicebus.windows.net:9093
+      required: false
+    - name: azureKafkaBillingJaasConfig
+      type: Secret
+      value: gk2Prod6bAzureKafkaBillingJaasConfig
+      required: false
+    - name: azureKafkaBillingMechanism
+      type: String
+      value: PLAIN
+      required: false
+    - name: azureKafkaBillingProtocol
+      type: String
+      value: SASL_SSL
+      required: false
+    - name: azureKafkaHost
+      type: String
+      value: prod6bgatekeeper2-pre.servicebus.windows.net:9093
+      required: false
+    - name: azureKafkaJaasConfig
+      type: Secret
+      value: gk2Prod6bAzureKafkaJaasConfigPre
+      required: false
+    - name: azureKafkaMaxBlockMS
+      type: String
+      value: "60000"
+      required: false
+    - name: azureKafkaMechanism
+      type: String
+      value: PLAIN
+      required: false
+    - name: azureKafkaProtocol
+      type: String
+      value: SASL_SSL
+      required: false
+    - name: azureKafkaRetries
+      type: String
+      value: "3"
+      required: false
+    - name: baseHREF
+      type: String
+      value: webapp/
+      required: false
+    - name: base_auth_url
+      type: String
+      value: <+"https://" + <+serviceVariables.globalAuthURL>>
+      required: false
+    - name: billingKafkaBootstrap
+      type: String
+      value: prod6bgatekeeper2-billing-std.servicebus.windows.net
+      required: false
+    - name: billingKafkaPass
+      type: Secret
+      value: gk2Prod6bBillingKafkaPasswordStd
+      required: false
+    - name: billingKafkaPort
+      type: String
+      value: "9093"
+      required: false
+    - name: billingSQLPassword
+      type: Secret
+      value: gk2Prod6aBillingSqlPassword
+      required: false
+    - name: billingSQLURL
+      type: String
+      value: jdbc:sqlserver://prod6agatekeeper2-sql.database.windows.net:1433;database=prod6agatekeeper2-billingdb;user=dbuser@prod6agatekeeper2-sql;password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
+      required: false
+    - name: billingSQLUser
+      type: String
+      value: dbuser
+      required: false
+    - name: bllJwsKeys1PrivateKey
+      type: Secret
+      value: gk2ProdBllJwskeys2Privatekey
+      required: false
+    - name: bllJwtKey
+      type: Secret
+      value: gk2ProdBllJwtPrivateKey
+      required: false
+    - name: bllMinioBucket
+      type: String
+      value: bllconfig
+      required: false
+    - name: bllRedisDB
+      type: String
+      value: "10"
+      required: false
+    - name: bllRedisHost
+      type: String
+      value: prod6bgatekeeper2-redis.redis.cache.windows.net
+      required: false
+    - name: bllRedisPassword
+      type: Secret
+      value: gk2Prod6bRedisPassword
+      required: false
+    - name: bllRedisPort
+      type: String
+      value: "6380"
+      required: false
+    - name: bllSessionCompressor
+      type: String
+      value: gz
+      required: false
+    - name: casandraSecretsFile
+      type: String
+      value: /mnt/secrets/gk-scopes.ini
+      required: false
+    - name: cassandraAccountName
+      type: String
+      value: prod6agatekeeper2-cosmosdb
+      required: false
+    - name: cassandraDataCenter
+      type: String
+      value: Australia Southeast
+      required: false
+    - name: cassandraDeletePartitionSupported
+      type: String
+      value: "true"
+      required: false
+    - name: cassandraEndpoint
+      type: String
+      value: prod6agatekeeper2-cosmosdb-australiasoutheast.cassandra.cosmos.azure.com:10350
+      required: false
+    - name: cassandraEndpointList
+      type: String
+      value: prod6agatekeeper2-cosmosdb-australiasoutheast.cassandra.cosmos.azure.com:10350
+      required: false
+    - name: cassandraKeyspaceForConfiguration
+      type: String
+      value: configuration_ks
+      required: false
+    - name: cassandraKeyspaceForConfiguration2
+      type: String
+      value: configuration_ks_2
+      required: false
+    - name: cassandraKeyspaceWithCommand
+      type: String
+      value: cosmosdb_autoscale_max_throughput=4000
+      required: false
+    - name: cassandraLWTSupported
+      type: String
+      value: "false"
+      required: false
+    - name: cassandraPassword
+      type: Secret
+      value: gk2Prod6aCosmosdbPassword
+      required: false
+    - name: cassandraQueryTimeout
+      type: String
+      value: 2000 ms
+      required: false
+    - name: cassandraSSLEngineFactory
+      type: String
+      value: DefaultSslEngineFactory
+      required: false
+    - name: cassandraUserName
+      type: String
+      value: prod6agatekeeper2-cosmosdb
+      required: false
+    - name: chartVersion
+      type: String
+      value: <+stage.variables.chartVersion>
+      required: false
+    - name: clientAddr
+      type: String
+      value: <+"static://" + <+serviceVariables.mediaManagerLabel> + "-event-subscription-manager-service.media-manager2-prod:9090">
+      required: false
+    - name: clientMMAddr
+      type: String
+      value: <+"dns:///" + <+serviceVariables.mediaManagerLabel> + "-media-handler-service.media-manager2-prod:9090">
+      required: false
+    - name: cluster
+      type: String
+      value: prod6b
+      required: false
+    - name: configDataStore
+      type: String
+      value: data-store
+      required: false
+    - name: configGitlabBranch
+      type: String
+      value: 2.26.0
+      required: false
+    - name: configGitlabPrefix
+      type: String
+      value: common-services
+      required: false
+    - name: configSchemaScore
+      type: String
+      value: classpath
+      required: false
+    - name: contentSecurityPolicy
+      type: String
+      value: default-src 'self'; connect-src *; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; child-src 'self'; media-src 'self' *.nuance.com *.nuance.co.uk *.nuance.ca *.nuance.de *.nuance.eu *.nuance.net.au; frame-src 'self' *.nuance.com *.nuance.co.uk *.nuance.ca *.nuance.de *.nuance.eu *.nuance.net.au *.microsoftonline.com
+      required: false
+    - name: contentSecurityPolicyReportOnly
+      type: String
+      value: "0"
+      required: false
+    - name: cspCookieName
+      type: String
+      value: additional_csp
+      required: false
+    - name: docs_hostname
+      type: String
+      value: docs.gatekeeper.nuance.net.au
+      required: false
+    - name: elasticSearchAzureAccount
+      type: String
+      value: prod6agk2essa
+      required: false
+    - name: elasticSearchAzureEnabled
+      type: String
+      value: "true"
+      required: false
+    - name: elasticSearchAzureKey
+      type: Secret
+      value: gk2Prod6aElasticsearchStorageAccountKey
+      required: false
+    - name: elasticSearchExpectedGB
+      type: String
+      value: "200"
+      required: false
+    - name: elasticSearchImageRepo
+      type: String
+      value: <+<+serviceVariables.artifactoryURL> + "/xgatekeeper2-docker-prod/elasticsearch/gk-elasticsearch-custom-monitoring">
+      required: false
+    - name: elasticSearchKibanaversion
+      type: String
+      value: 7.17.7
+      required: false
+    - name: elasticSearchShardsAllowedPct
+      type: String
+      value: "90"
+      required: false
+    - name: elasticsearchCertPath
+      type: String
+      value: /path/certs/tls.crt
+      required: false
+    - name: elasticsearchCertSecret
+      type: String
+      value: prod-gk2-elasticsearch-kibana-es-http-ca-internal
+      required: false
+    - name: elasticsearchClientEnableKeepAlive
+      type: String
+      value: "true"
+      required: false
+    - name: elasticsearchEnableSSL
+      type: String
+      value: "true"
+      required: false
+    - name: elasticsearchEnableSSLRemote
+      type: String
+      value: "true"
+      required: false
+    - name: elasticsearchHost
+      type: String
+      value: prod-gk2-elasticsearch-kibana-es-http.gatekeeper2-prod.svc:9200
+      required: false
+    - name: elasticsearchMonitorPassword
+      type: Secret
+      value: gk2Prod6aEsMonPass
+      required: false
+    - name: elasticsearchMonitorPasswordEnc
+      type: Secret
+      value: gk2Prod6aEsMonPassEnc
+      required: false
+    - name: elasticsearchMonitorUsername
+      type: String
+      value: gk2-elastic-monitor
+      required: false
+    - name: elasticsearchPassword
+      type: Secret
+      value: gk2Prod6aElasticsearchPassword
+      required: false
+    - name: elasticsearchPasswordEnc
+      type: Secret
+      value: gk2Prod6aEsPassEnc
+      required: false
+    - name: elasticsearchPingConnectTimeout
+      type: String
+      value: "1000"
+      required: false
+    - name: elasticsearchReadOnlyCertPath
+      type: String
+      value: /path/remote-certs/remote.ca.crt
+      required: false
+    - name: elasticsearchReadOnlyEnableKeepAlive
+      type: String
+      value: "true"
+      required: false
+    - name: elasticsearchReadOnlyHost
+      type: String
+      value: <+<+serviceVariables.label> + "-gk2-elasticsearch-kibana-es-http:9200">
+      required: false
+    - name: elasticsearchReadonlySkipSSLValidation
+      type: String
+      value: "false"
+      required: false
+    - name: elasticsearchRemoteCertSecret
+      type: String
+      value: prod6a-http-ca-crt
+      required: false
+    - name: elasticsearchSkipSSLValidation
+      type: String
+      value: "true"
+      required: false
+    - name: elasticsearchUsePrefix
+      type: String
+      value: "false"
+      required: false
+    - name: elasticsearchUsername
+      type: String
+      value: gk2-elastic-admin
+      required: false
+    - name: elasticsearch_sso_auth_url
+      type: String
+      value: <+"https://" + <+serviceVariables.globalAuthURL>>
+      required: false
+    - name: elasticsearch_sso_client_id
+      type: String
+      value: v2_c47b6d76-9ed7-4990-b23b-9d23286ecbeb
+      required: false
+    - name: elasticsearch_sso_client_secret
+      type: Secret
+      value: gk2Prod6aElasticsearchSecret
+      required: false
+    - name: elasticsearch_sso_introspection_url
+      type: String
+      value: http://hydra-prod-admin.global-auth-prod:4445/oauth2/introspect
+      required: false
+    - name: elasticsearch_sso_userinfo_url
+      type: String
+      value: <+"http://" + <+serviceVariables.label> + "-gk2-web-bff-service:5099/userinfo">
+      required: false
+    - name: enableServiceWorker
+      type: String
+      value: "true"
+      required: false
+    - name: enable_tracing
+      type: String
+      value: "false"
+      required: false
+    - name: encryptionADGroupObjectId
+      type: String
+      value: 7a64bcf6-eba0-44ca-b761-9012f69d7e40
+      required: false
+    - name: encryptionADGrouptenantId
+      type: String
+      value: 29208c38-8fc5-4a03-89e2-9b6e8e4b388b
+      required: false
+    - name: encryptionDataKeySecretProviderClass
+      type: String
+      value: <+<+serviceVariables.label> + "-gk2-encryption-utils-data-key-provider">
+      required: false
+    - name: encryptionDataKeyVaultName
+      type: String
+      value: prod6agatekeeper2-dek
+      required: false
+    - name: encryptionMasterKeySecretProviderClass
+      type: String
+      value: <+<+serviceVariables.label> + "-gk2-encryption-utils-master-key-provider">
+      required: false
+    - name: encryptionMasterKeyVaultName
+      type: String
+      value: prod6agatekeeper2-kek
+      required: false
+    - name: encryptionMode
+      type: String
+      value: AKV
+      required: false
+    - name: encryptionSecretName
+      type: String
+      value: <+<+serviceVariables.label> + "-gk2-encryption-utils-akv-service-principal-secret">
+      required: false
+    - name: encryptionSecretRootPath
+      type: String
+      value: /mnt/gk2-secrets-store
+      required: false
+    - name: encryptionServicePrincipalObjectId
+      type: String
+      value: b95a571d-9c3b-45a2-b66c-bc886e505e82
+      required: false
+    - name: encryptionUtilsKeyVaultResourcegroup
+      type: String
+      value: prod6agatekeeper2rg
+      required: false
+    - name: encryptionUtilsKeyVaultSubscriptionId
+      type: String
+      value: 65d50ea2-2d6a-4eb6-9872-7459d60971ee
+      required: false
+    - name: encryptionUtilsServicePrincipalAppId
+      type: String
+      value: 2d4cb863-b1af-4bae-9cc0-9d876601e8d4
+      required: false
+    - name: encryptionUtilsServicePrincipalPassword
+      type: Secret
+      value: gk2Prod6aEncUtilSpPassword
+      required: false
+    - name: encryptionUtilsServicePrincipalTenantId
+      type: String
+      value: 29208c38-8fc5-4a03-89e2-9b6e8e4b388b
+      required: false
+    - name: envoyImageRepo
+      type: String
+      value: <+<+serviceVariables.artifactoryURL> + "/xgatekeeper2-docker-prod/envoyproxy/envoy">
+      required: false
+    - name: envoyImageTag
+      type: String
+      value: v1.26.5
+      required: false
+    - name: gatekeeperADIssuerURL
+      type: String
+      value: https://sts.windows.net/46280e6c-806b-4c50-9609-2f5ff94aafd0/
+      required: false
+    - name: gatewayURL
+      type: String
+      value: <+"https://" + <+serviceVariables.apiDomain>>
+      required: false
+    - name: gk2_webapp_auth_client_id
+      type: String
+      value: v2_5d15cafb-3290-4b1b-aacb-4968e3ba6d97
+      required: false
+    - name: gkAstraAPIClientId
+      type: String
+      value: 4cd7a620-c061-4d8b-9b0f-a3d8e251d65c
+      required: false
+    - name: gkSystemScopeId
+      type: String
+      value: 00000000-0000-4000-a000-000000000000
+      required: false
+    - name: globalAuth
+      type: String
+      value: global-auth-prod
+      required: false
+    - name: globalAuthURL
+      type: String
+      value: auth.crt.nuance.net.au
+      required: false
+    - name: globalOauthExternalClientId
+      type: String
+      value: v2_3d72068d-98b3-431a-b7fd-5c513aae32fb
+      required: false
+    - name: globalOauthIssuerURL
+      type: String
+      value: <+"https://" + <+serviceVariables.globalAuthURL> + "/">
+      required: false
+    - name: health_check_synthetic_test_url
+      type: String
+      value: https://gk2-synthetic-test-6b-premium.azurewebsites.net/api/gk2-synthetic?code=OLrgxEnWG2ittgoLsbIWTH2r-01reWGhGEHBtCVkQ9HfAzFu4vbMUQ%3D%3D
+      required: false
+    - name: helpURL
+      type: String
+      value: https://docs.gatekeeper.nuance.net.au/help/
+      required: false
+    - name: help_domain
+      type: String
+      value: australiasoutheast6-docs.gatekeeper.nuance.net.au
+      required: false
+    - name: hostAliases
+      type: String
+      value: 10.74.66.142
+      required: false
+    - name: imagePullPolicy
+      type: String
+      value: IfNotPresent
+      required: false
+    - name: imageRepo
+      type: String
+      value: xgatekeeper2.azurecr.io/xgatekeeper2-docker-prod/gk2
+      required: false
+    - name: infraDockerRepoBase
+      type: String
+      value: xinfra.azurecr.io/datawire
+      required: false
+    - name: internalTlsDomain
+      type: String
+      value: .gatekeeper2-prod.svc.cluster.local
+      required: false
+    - name: internalTlsEnabled
+      type: String
+      value: "false"
+      required: false
+    - name: internalTlsGrpcProtocol
+      type: String
+      value: PLAINTEXT
+      required: false
+    - name: internal_ambassadorId
+      type: String
+      value: gatekeeper2-prod-internal
+      required: false
+    - name: internal_ambassador_domain
+      type: String
+      value: gk2-internal.prod6b.private.crt.nuance.com
+      required: false
+    - name: ivrbotRedisDB
+      type: String
+      value: "12"
+      required: false
+    - name: jaegerAgentImage
+      type: String
+      value: xinfra.azurecr.io/jaegertracing/jaeger-agent:1.28.0
+      required: false
+    - name: jaegerCollectorHost
+      type: String
+      value: jaeger-operator-jaeger-collector-headless
+      required: false
+    - name: jaegerCollectorHostNamespace
+      type: String
+      value: tracing
+      required: false
+    - name: jaegerCollectorHostPort
+      type: String
+      value: jaeger-operator-jaeger-collector-headless.tracing.svc.cluster.local.:9411
+      required: false
+    - name: jaegerEnabled
+      type: String
+      value: <+serviceVariables.enable_tracing>
+      required: false
+    - name: jobsManagerScheduling
+      type: String
+      value: 0 05 */1 * * *
+      required: false
+    - name: jobsManagerSchedulingCheck
+      type: String
+      value: 55m
+      required: false
+    - name: kafka_enablehealthcheck
+      type: String
+      value: "true"
+      required: false
+    - name: kedaTriggersServerAddress
+      type: String
+      value: https://thanos-query.monitoring.svc.cluster.local.:9090
+      required: false
+    - name: kibanaImageRepo
+      type: String
+      value: <+<+serviceVariables.artifactoryURL> + "/xgatekeeper2-docker-prod/kibana/kibana">
+      required: false
+    - name: kibana_prefix
+      type: String
+      value: kibana
+      required: false
+    - name: label
+      type: String
+      value: prod
+      required: false
+    - name: legacy_date_when_before
+      type: String
+      value: "2023-06-15T09:47:00.001Z"
+      required: false
+    - name: logLevel
+      type: String
+      value: INFO
+      required: false
+    - name: logMasking
+      type: String
+      value: mask
+      required: false
+    - name: mediaManagerCallDataClientAdd
+      type: String
+      value: <+"static://" + <+serviceVariables.mediaManagerLabel> + "-event-subscription-manager-service.media-manager2-prod:9090">
+      required: false
+    - name: mediaManagerLabel
+      type: String
+      value: prod
+      required: false
+    - name: metricsScrapeInterval
+      type: String
+      value: 15s
+      required: false
+    - name: minIOAccesskey
+      type: String
+      value: prod6agk2sa
+      required: false
+    - name: minIOStorageAccountRegion
+      type: String
+      value: Australia-East
+      required: false
+    - name: minioEndpoint
+      type: String
+      value: <+"http://" + <+serviceVariables.label> + "-gk2-minio-service." + <+infra.namespace> + ":9000">
+      required: false
+    - name: minioImageRepo
+      type: String
+      value: <+<+serviceVariables.artifactoryURL> + "/xgatekeeper2-docker-prod/minio">
+      required: false
+    - name: minioPassword
+      type: Secret
+      value: gk2Prod6aStorageAccountAccessKey
+      required: false
+    - name: minioPort
+      type: String
+      value: "9000"
+      required: false
+    - name: minioRegion
+      type: String
+      value: Australia-East
+      required: false
+    - name: minioVersion
+      type: String
+      value: RELEASE.2021-05-11T23-27-41Z
+      required: false
+    - name: negotiationType
+      type: String
+      value: plaintext
+      required: false
+    - name: networkPolicyEnabled
+      type: String
+      value: "true"
+      required: false
+    - name: nodepool
+      type: String
+      value: general
+      required: false
+    - name: nuanceADIssuerURL
+      type: String
+      value: https://sts.windows.net/29208c38-8fc5-4a03-89e2-9b6e8e4b388b/
+      required: false
+    - name: nuanceADIsuuerURL
+      type: String
+      value: https://sts.windows.net/29208c38-8fc5-4a03-89e2-9b6e8e4b388b/
+      required: false
+    - name: numNRSLExecutors
+      type: String
+      value: "30"
+      required: false
+    - name: oauthkeeperService
+      type: String
+      value: oathkeeper-biosec-prod-api.global-auth-prod.svc.cluster.local.:4456
+      required: false
+    - name: opaImage
+      type: String
+      value: <+<+serviceVariables.artifactoryURL> + "/xgatekeeper2-docker-prod/openpolicyagent/opa">
+      required: false
+    - name: privacy_url
+      type: String
+      value: https://go.microsoft.com/fwlink/?LinkId=521839
+      required: false
+    - name: recordingClientAdd
+      type: String
+      value: <+"static://" + <+serviceVariables.mediaManagerLabel> + "-recording-service-service.media-manager2-prod:9090">
+      required: false
+    - name: responseType
+      type: String
+      value: code
+      required: false
+    - name: scopesManagerPurgeEnabled
+      type: String
+      value: "false"
+      required: false
+    - name: scopesManagerPurgeUTCTime
+      type: String
+      value: 0 14 * * SAT
+      required: false
+    - name: serviceType
+      type: String
+      value: ClusterIP
+      required: false
+    - name: sessionStoretype
+      type: String
+      value: none
+      required: false
+    - name: signingClientId
+      type: String
+      value: 2d4cb863-b1af-4bae-9cc0-9d876601e8d4
+      required: false
+    - name: signingClientSecret
+      type: Secret
+      value: gk2Prod6aEncUtilSpPassword
+      required: false
+    - name: signingTenantId
+      type: String
+      value: 29208c38-8fc5-4a03-89e2-9b6e8e4b388b
+      required: false
+    - name: smdcRedisDB
+      type: String
+      value: "11"
+      required: false
+    - name: smdcRedisHost
+      type: String
+      value: prod6bgatekeeper2-redis.redis.cache.windows.net
+      required: false
+    - name: smdcRedisPassword
+      type: Secret
+      value: gk2Prod6bRedisPassword
+      required: false
+    - name: smdcRedisPort
+      type: String
+      value: "6380"
+      required: false
+    - name: smdcSessionStoreType
+      type: String
+      value: redis
+      required: false
+    - name: springProfiles
+      type: String
+      value: production
+      required: false
+    - name: statusPageDomain
+      type: String
+      value: gk2-status.dev.cd4.private.crt.nuance.com
+      required: false
+    - name: stickyHeaderField
+      type: String
+      value: x-nuance-user-id
+      required: false
+    - name: tenantsConfig
+      type: String
+      value: "[{'tenant': 'nuance', 'hintArg': 'login_hint'},{'tenant': 'gatekeeper', 'hintArg': 'login_hint'}]"
+      required: false
+    - name: traffic_manager_domain
+      type: String
+      value: portal.gatekeeper.nuance.net.au
+      required: false
+    - name: useFetchAuthHeader
+      type: String
+      value: "true"
+      required: false
+    - name: wacBffMinioBucket
+      type: String
+      value: wac-bff-config
+      required: false
+    - name: wacDomain
+      type: String
+      value: agent.gatekeeper.nuance.net.au
+      required: false
+    - name: wacPrefix
+      type: String
+      value: web-console
+      required: false
+    - name: wac_auth_client_id
+      type: String
+      value: v2_a7271348-fae5-497a-aea9-43b5238a362a
+      required: false
+    - name: wac_enviroment
+      type: String
+      value: prod
+      required: false
+    - name: webAPIClientId
+      type: String
+      value: v2_3d72068d-98b3-431a-b7fd-5c513aae32fb
+      required: false
+    - name: webAPIClientScope
+      type: String
+      value: WebBFFService GatekeeperService mm.media.read
+      required: false
+    - name: webAPIClientSecret
+      type: Secret
+      value: gk2Prod6aWebApiClientSecret
+      required: false
+    - name: webBffURL
+      type: String
+      value: https://portal.gatekeeper.nuance.net.au
+      required: false
+    - name: webDomain
+      type: String
+      value: global-status.gatekeeper.nuance.net.au
+      required: false
+    - name: webappPrefix
+      type: String
+      value: webapp
+      required: false
+    - name: silenceThreshold
+      type: String
+      value: " "
       description: ""
-      permanent: false
-      spec:
-        type: string
-        default:
-          onVariation: enabled
-          offVariation: disabled
-        variations:
-        - identifier: enabled
-          value: enabled
-        - identifier: disabled
-          value: disabled
-      environments:
-      - identifier: rerpo
-        default:
-          onVariation: enabled
-          offVariation: disabled
-        state: "off"
-      - identifier: Prod
-        default:
-          onVariation: enabled
-          offVariation: disabled
-        state: "off"
-      - identifier: Dev
-        default:
-          onVariation: enabled
-          offVariation: disabled
-        state: "off"
-      - identifier: dgdsgsdgsdfg
-        default:
-          onVariation: enabled
-          offVariation: disabled
-        state: "off"
-      - identifier: sdkkey
-        default:
-          onVariation: enabled
-          offVariation: disabled
-        state: "off"
-  - flag:
-      name: k
-      identifier: k
+      required: false
+    - name: reportingEndpoints
+      type: String
+      value: " "
       description: ""
-      permanent: false
-      spec:
-        type: boolean
-        default:
-          onVariation: "false"
-          offVariation: "false"
-        variations:
-        - identifier: "true"
-          value: "true"
-        - identifier: "false"
-          value: "false"
-      tags:
-      - tag:
-          name: gg
-          identifier: gg
-      environments:
-      - identifier: rerpo
-        default:
-          onVariation: "false"
-          offVariation: "false"
-        state: "off"
-      - identifier: Prod
-        default:
-          onVariation: "false"
-          offVariation: "false"
-        state: "off"
-      - identifier: Dev
-        default:
-          onVariation: "false"
-          offVariation: "false"
-        state: "off"
-      - identifier: dgdsgsdgsdfg
-        default:
-          onVariation: "false"
-          offVariation: "false"
-        state: "off"
-      - identifier: sdkkey
-        default:
-          onVariation: "false"
-          offVariation: "false"
-        state: "on"
-  - flag:
-      name: MY_FEATURE
-      identifier: MY_FEATURE
+      required: false
+    - name: cspReportUris
+      type: String
+      value: " "
       description: ""
-      permanent: false
-      spec:
-        type: boolean
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        variations:
-        - identifier: Enabled
-          value: "true"
-        - identifier: Disabled
-          value: "false"
-      environments:
-      - identifier: rerpo
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        state: "off"
-      - identifier: Prod
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        state: "off"
-      - identifier: Dev
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        state: "off"
-      - identifier: dgdsgsdgsdfg
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        state: "off"
-      - identifier: sdkkey
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        state: "off"
-  - flag:
-      name: MY_FEATURE1
-      identifier: MY_FEATURE1
+      required: false
+    - name: cspReportTo
+      type: String
+      value: " "
       description: ""
-      permanent: false
-      spec:
-        type: boolean
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        variations:
-        - identifier: Enabled
-          value: "true"
-        - identifier: Disabled
-          value: "false"
-      environments:
-      - identifier: rerpo
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        state: "off"
-      - identifier: Prod
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        state: "off"
-      - identifier: Dev
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        state: "off"
-      - identifier: dgdsgsdgsdfg
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        state: "off"
-      - identifier: sdkkey
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        state: "off"
-  - flag:
-      name: offers_simplifiedSingleTicketCheck
-      identifier: offers_simplifiedSingleTicketCheck
+      required: false
+    - name: azureLanguageServicesEndpoint
+      type: String
+      value: " "
       description: ""
-      permanent: false
-      spec:
-        type: boolean
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        variations:
-        - identifier: Enabled
-          value: "true"
-        - identifier: Disabled
-          value: "false"
-      environments:
-      - identifier: rerpo
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        state: "off"
-      - identifier: Prod
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        state: "off"
-      - identifier: Dev
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        state: "on"
-      - identifier: dgdsgsdgsdfg
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        state: "off"
-      - identifier: sdkkey
-        default:
-          onVariation: Enabled
-          offVariation: Disabled
-        state: "off"
-  - flag:
-      name: testfindl
-      identifier: testfindl
+      required: false
+    - name: authScope
+      type: String
+      value: " "
       description: ""
-      permanent: false
-      spec:
-        type: boolean
-        default:
-          onVariation: "false"
-          offVariation: "false"
-        variations:
-        - identifier: "true"
-          value: "true"
-        - identifier: "false"
-          value: "false"
-      tags:
-      - tag:
-          name: dr
-          identifier: dr
-      - tag:
-          name: gg
-          identifier: gg
-      environments:
-      - identifier: rerpo
-        default:
-          onVariation: "false"
-          offVariation: "false"
-        state: "off"
-      - identifier: Prod
-        default:
-          onVariation: "false"
-          offVariation: "false"
-        state: "on"
-      - identifier: Dev
-        default:
-          onVariation: "false"
-          offVariation: "false"
-        state: "off"
-        targetRules:
-        - targets:
-          - identifier: velws
-          variation: "true"
-      - identifier: dgdsgsdgsdfg
-        default:
-          onVariation: "false"
-          offVariation: "false"
-        state: "off"
-      - identifier: sdkkey
-        default:
-          onVariation: "false"
-          offVariation: "false"
-        state: "on"
-  projectIdentifier: FF_Test
-  orgIdentifier: default
+      required: false
+    - name: aadWebAppClientId
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: azureSpeechServicesEndpoint
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: azureLanguageServicesKey
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: hpaNativeEnabled
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: azureSQLDBURL
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: calibrationsUploadHeaders
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: aadEnabled
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: azureSpeechServicesRegion
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: aadWebAppEnabled
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: gkAstraInboundPolicy
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: appId
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: azureLanguageServicesRegion
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: internalTlsCaPath
+      type: String
+      value: "null"
+      description: ""
+      required: false
+    - name: kedaEnabled
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: numberOfChunks
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: chunkSize
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: aadWebAppAuthority
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: javaOptions
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: voiceidPrivacyPolicyUrl
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: internalTlsCiphers
+      type: String
+      value: "null"
+      description: ""
+      required: false
+    - name: aadRedirectUri
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: aadWebAppScopes
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: authority
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: azureSQLDBUser
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: azureSQLDBPassword
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: azureSpeechServicesKey
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: aadScopes
+      type: String
+      value: " "
+      description: ""
+      required: false
+    - name: voiceidStickyHeaderKey
+      type: String
+      value: x-nuance-client-id
+      required: false
+    - name: contextManagerPurgeDelaysMs
+      type: String
+      value: ""
+      description: ""
+      required: false
+    - name: diagsURL
+      type: String
+      value: ""
+      required: false
+    - name: maxDownloadResults
+      type: String
+      value: "2000"
+      required: false
+  manifests:
+    - manifest:
+        identifier: allServices_Bu5
+        type: HelmRepoOverride
+        spec:
+          connectorRef: prodAcrXgatekeeper2Oci
+          type: OciHelmChart
+    - manifest:
+        identifier: allServices_CiD
+        type: Values
+        spec:
+          store:
+            spec:
+              connectorRef: gatekeeper2Environments
+              gitFetchType: Branch
+              branch: <+serviceVariables.configGitlabBranch>
+              paths:
+                - common-services/variables.yaml
+            type: Git
+  configFiles:
+    - configFile:
+        identifier: bllClientKey
+        spec:
+          store:
+            spec:
+              secretFiles:
+                - gk2ProdBllClientkey2024
+            type: Harness
+    - configFile:
+        identifier: clientcertificatePem
+        spec:
+          store:
+            spec:
+              files:
+                - /prod6b-gatekeeper2/clientCertificate_pem
+            type: Harness
