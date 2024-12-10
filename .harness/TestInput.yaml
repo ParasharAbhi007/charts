@@ -1,6 +1,6 @@
 inputSet:
   identifier: "TestInput"
-  name: "TestInput"
+  name: "TestInputs"
   orgIdentifier: "AbhiOrg"
   projectIdentifier: "CSETest1"
   pipeline:
