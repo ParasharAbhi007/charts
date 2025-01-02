@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: newqnv
+  identifier: newqnv
+  orgIdentifier: AbhiOrg
+  projectIdentifier: CSETest1
+  environmentRef: remoteenv
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: account.k8sw
+    namespace: abhinandan
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
