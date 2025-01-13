@@ -3,7 +3,7 @@ pipeline:
   identifier: remote
   projectIdentifier: CSETest1
   orgIdentifier: AbhiOrg
-  tags: {}
+  tags: {"new"}
   stages:
     - stage:
         name: test
