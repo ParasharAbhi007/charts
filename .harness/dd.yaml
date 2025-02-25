@@ -1,5 +1,5 @@
 template:
-  name: dd
+  name: dds
   type: SecretManager
   projectIdentifier: CSETest1
   orgIdentifier: AbhiOrg
