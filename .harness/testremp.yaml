@@ -1,0 +1,20 @@
+template:
+  name: secret_tempsss
+  identifier: secret_tempsss
+  versionLabel: "1"
+  type: SecretManager
+  projectIdentifier: CSETest1
+  orgIdentifier: AbhiOrg
+  tags: {}
+  spec:
+    shell: Bash
+    delegateSelectors: []
+    source:
+      type: Inline
+      spec:
+        script: |-
+          echo hey
+          hello
+    environmentVariables: []
+    outputVariables: []
+    onDelegate: true
