@@ -1,0 +1,20 @@
+template:
+  name: dd
+  type: SecretManager
+  projectIdentifier: CSETest1
+  orgIdentifier: AbhiOrg
+  tags: {}
+  spec:
+    shell: Bash
+    delegateSelectors: []
+    source:
+      type: Inline
+      spec:
+        script: |-
+          echo hey
+          hello
+    environmentVariables: []
+    outputVariables: []
+    onDelegate: true
+  versionLabel: "2"
+  identifier: dd
