@@ -30,16 +30,29 @@ featureFlags:
           onVariation: "false"
           offVariation: "false"
         state: "off"
+        targetRules:
+        - targets:
+          - identifier: jfndd
+          - identifier: hsd
+          variation: "false"
+        - targets:
+          - identifier: dfdvfb
+          variation: "true"
       - identifier: Dev
         default:
           onVariation: "false"
           offVariation: "false"
-        state: "off"
+        state: "on"
+        targetRules:
+        - targets:
+          - identifier: vvv
+          - identifier: sfsfsfsfsf
+          variation: "true"
       - identifier: dgdsgsdgsdfg
         default:
           onVariation: "false"
           offVariation: "false"
-        state: "off"
+        state: "on"
       - identifier: sdkkey
         default:
           onVariation: "false"
